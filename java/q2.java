@@ -1,5 +1,4 @@
-class Q2
-{
+class Q2 {
     public static void main(String[] args) {
         // Creating Texto
         Texto texto = new Texto("Ola humanos humanos seus inuteis, inuteis, inuteis.");
@@ -31,35 +30,59 @@ class Texto {
         this.texto = texto;
     }
 
-    protected String preProcess(String string) {
-        // Only maintain letters / nums and only one whitespace between words
-        return string.replaceAll("[^A-Za-z0-9]", " ").trim().replaceAll(" +", " ");
-    }
-
     public void printTexto() {
         System.out.println(this.texto);
     }
 
     public int getQtPalavras() {
-        // Cast preProcess to correctly parse the words
-        String textoAux = preProcess(this.texto);
+        int len = this.texto.length(), qt = 0;
         
-        int qt = 0;
-        for(String palavra: textoAux.split(" ")) {
-            qt++;
+        boolean found = false;
+        for(int i = 0; i < len; i++) {
+            char c = this.texto.charAt(i);
+            boolean isAlphaNumeric = (Character.isLetter(c) || Character.isDigit(c));
+            
+            // If is alphanumeric, mark as found
+            if(isAlphaNumeric) {
+                found = true;
+            }
+            // If not is alphanumeric and found an earlier substr, inc qt and reset boolean
+            else if (!isAlphaNumeric && found){
+                qt++;
+                found = false;
+            }
+            
+            // Case to avoid errors with last word
+            if(i == len - 1 && found) {
+                qt++;
+                found = false;
+            }
         }
 
         return qt;
     }
 
     public int getFreqSubStr(String subStr) {
-        // Cast preProcess to correctly parse the words
-        String textoAux = preProcess(this.texto);
+        int len = this.texto.length(), subLen = subStr.length(), qt = 0;
         
-        int qt = 0;
-        for(String palavra: textoAux.split(" ")) {
-            if(palavra.equals(subStr)) {
-                qt++;
+        for (int i = 0; i < len; i++) {
+            // Avoid string index exception
+            if(i+subLen > len) {
+                break;
+            }
+            
+            // If first char is eq, cast an loop
+            if(this.texto.charAt(i) == subStr.charAt(0)) {
+                boolean found = true;
+                for(int j = 0; j < subLen; j++) {
+                    if(this.texto.charAt(i + j) != subStr.charAt(j)) {
+                        found = false;
+                        break;
+                    }
+                }
+                if(found) {
+                    qt++;
+                }
             }
         }
 
