@@ -13,4 +13,4 @@ jobs:
       - name: "Install dependencies"
         run: sudo apt-get install build-essential default-jre default-jdk
       - name: "Build"
-        run: cd java && find -name "*.java" > sources.txt && javac @sources.txt
+        run: cd java && sh compile.sh
