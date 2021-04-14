@@ -45,7 +45,7 @@ abstract class Pessoa {
     protected abstract void setCPF(String cpf);
 }
 
-public class Aluno extends Pessoa {
+class Aluno extends Pessoa {
     protected String matricula;
     protected String curso;
 
@@ -86,7 +86,7 @@ public class Aluno extends Pessoa {
     }
 }
 
-public class Professor extends Pessoa {
+class Professor extends Pessoa {
     protected String formacao;
     protected String area;
 
@@ -127,12 +127,12 @@ public class Professor extends Pessoa {
     }
 }
 
-public interface Colecao {
+interface Colecao {
     void inserir(Pessoa p);
     int tamanhoColecaoNaoNull();
 }
 
-public class ColecaoVetor implements Colecao {
+class ColecaoVetor implements Colecao {
     protected Pessoa[] dados;
 
     ColecaoVetor() {
