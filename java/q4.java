@@ -32,28 +32,28 @@ class Conta {
     }
 
     // Getters
-    public String getNumIdentificacao() {
+    protected String getNumIdentificacao() {
         return this.numIdentificacao;
     }
 
-    public String getAgencia() {
+    protected String getAgencia() {
         return this.agencia;
     }
 
-    public Senha getSenha() {
+    protected Senha getSenha() {
         return this.senha;
     }
 
     // Setters
-    public void setNumIdentificacao(String numIdentificacao) {
+    protected void setNumIdentificacao(String numIdentificacao) {
         this.numIdentificacao = numIdentificacao;
     }
 
-    public void setAgencia(String agencia) {
+    protected void setAgencia(String agencia) {
         this.agencia = agencia;
     }
 
-    public void setSenha(Senha senha) {
+    protected void setSenha(Senha senha) {
         this.senha = senha;
     }
 }
@@ -70,20 +70,20 @@ class Senha {
     }
 
     // Getters
-    public String getSenhaLN() {
+    protected String getSenhaLN() {
         return this.senhaLN;
     }
 
-    public String getSenhaN() {
+    protected String getSenhaN() {
         return this.senhaN;
     }
 
     // Setters
-    public void setSenhaLN(String senhaLN) {
+    protected void setSenhaLN(String senhaLN) {
         this.senhaLN = senhaLN;
     }
 
-    public void setSenhaN(String senhaN) {
+    protected void setSenhaN(String senhaN) {
         this.senhaN = senhaN;
     }
 }

@@ -5,18 +5,18 @@ class Q1
         LivroBiblioteca livroBiblioteca = new LivroBiblioteca();
 
         // Setting livroLivraria data
-        livroLivraria.ISBN = "9780329975876";
-        livroLivraria.titulo = "Harry Potter and the Prisoner of Azkaban";
-        livroLivraria.autor = "J. K. Rowling";
-        livroLivraria.editora = "Rocco";
-        livroLivraria.ano = 1999;
+        livroLivraria.setISBN("9780329975876");
+        livroLivraria.setTitulo("Harry Potter and the Prisoner of Azkaban");
+        livroLivraria.setAutor("J. K. Rowling");
+        livroLivraria.setEditora("Rocco");
+        livroLivraria.setAno(1999);
 
         // Setting livroBiblioteca data
-        livroBiblioteca.ISBN = "9780439784542";
-        livroBiblioteca.titulo = "Harry Potter and the Half Blood Prince";
-        livroBiblioteca.autor = "J. K. Rowling";
-        livroBiblioteca.editora = "Rocco";
-        livroBiblioteca.ano = 2005;
+        livroBiblioteca.setISBN("9780439784542");
+        livroBiblioteca.setTitulo("Harry Potter and the Half Blood Prince");
+        livroBiblioteca.setAutor("J. K. Rowling");
+        livroBiblioteca.setEditora("Rocco");
+        livroBiblioteca.setAno(2005);
 
         // Print statuses
         System.out.println("livroLivraria isVendido => " + livroLivraria.isVendido());
@@ -38,18 +38,60 @@ abstract class Livro {
     public String autor;
     public String editora;
     public int ano;
+
+    // Setters
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setEditora(String editora) {
+        this.editora = editora;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    // Getters
+    public String getISBN() {
+        return this.ISBN;
+    }
+
+    public String getTitulo() {
+        return this.titulo;
+    }
+    
+    public String getAutor() {
+        return this.autor;
+    }
+
+    public String getEditora() {
+        return this.editora;
+    }
+
+    public int getAno() {
+        return this.ano;
+    }
 }
 
 class LivroLivraria extends Livro {
     protected Boolean vendido;
 
-    protected LivroLivraria() {
+    LivroLivraria() {
         this.vendido = false;
     }
 
     public void venderLivro() {
         this.vendido = true;
-        System.out.println("LivroLivraria " + this.ISBN + " vendido.");
+        System.out.println("LivroLivraria " + this.getISBN() + " [" + this.getTitulo() + "] " + "vendido.");
     }
 
     public Boolean isVendido() {
@@ -60,13 +102,13 @@ class LivroLivraria extends Livro {
 class LivroBiblioteca extends Livro {
     protected Boolean emprestado;
 
-    protected LivroBiblioteca() {
+    LivroBiblioteca() {
         this.emprestado = false;
     }
 
     public void emprestarLivro() {
         this.emprestado = true;
-        System.out.println("LivroBiblioteca " + this.ISBN + " emprestado.");
+        System.out.println("LivroBiblioteca " + this.getISBN() + " [" + this.getTitulo() + "] " + "emprestado.");
     }
 
     public Boolean isEmprestado() {

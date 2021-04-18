@@ -26,7 +26,7 @@ class Q2 {
 class Texto {
     protected String texto;
 
-    protected Texto(String texto) {
+    Texto(String texto) {
         this.texto = texto;
     }
 

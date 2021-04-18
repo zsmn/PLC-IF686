@@ -33,11 +33,11 @@ abstract class Pessoa {
         this.cpf = cpf;
     }
 
-    public String getNome() {
+    protected String getNome() {
         return this.nome;
     }
 
-    public String getCPF() {
+    protected String getCPF() {
         return this.cpf;
     }
 
@@ -77,11 +77,11 @@ class Aluno extends Pessoa {
     }
 
     // Aluno getters
-    public String getMatricula() {
+    protected String getMatricula() {
         return this.matricula;
     }
 
-    public String getCurso() {
+    protected String getCurso() {
         return this.curso;
     }
 }
@@ -118,11 +118,11 @@ class Professor extends Pessoa {
     }
 
     // Aluno getters
-    public String getFormacao() {
+    protected String getFormacao() {
         return this.formacao;
     }
 
-    public String getArea() {
+    protected String getArea() {
         return this.area;
     }
 }
